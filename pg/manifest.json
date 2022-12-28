@@ -1,6 +1,6 @@
 {
-    "name": "password_generator",
-    "short_name": "password_generator",
+    "name": "Readable Passwords Generator",
+    "short_name": "Passwords Generator",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
