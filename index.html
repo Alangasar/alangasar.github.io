@@ -64,7 +64,7 @@
             batteryIcon.className = 'fas fa-battery-quarter';
         } else {
             batteryIcon.className = 'fas fa-battery-empty';
-            batteryIcon.style.color = 'red'; // Дополнительное выделение низкого заряда
+            batteryIcon.style.color = 'var(--secondary)';
         }
     }
 
@@ -72,20 +72,37 @@
     fetch('battery.json')
         .then(response => {
             if (!response.ok) {
+                document.getElementById('battery-status').style.display = 'none';
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
         .then(data => {
-            if (data && typeof data.battery === 'number') {
+            if (data && typeof data.battery === 'number' && data.updated) {
                 updateBatteryDisplay(data.battery);
+                
+                // --- ДОБАВЛЕНИЕ ТУЛТИПА ---
+                const statusElement = document.getElementById('battery-status');
+                
+                // Форматируем время для удобного отображения в тултипе
+                const updatedTime = new Date(data.updated);
+                const readableTime = updatedTime.toLocaleString('ru-RU', {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+
+                statusElement.title = `Updated: ${readableTime}`;
+                // -------------------------
+
             } else {
                 console.error("Invalid battery data format.");
             }
         })
         .catch(error => {
             console.error('Could not fetch battery data:', error);
-            // Оставляем '--%' в случае ошибки
         });
 </script>
 </body>
