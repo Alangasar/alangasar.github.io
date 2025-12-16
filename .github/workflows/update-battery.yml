@@ -2,7 +2,8 @@ name: Update battery.json
 
 on:
   workflow_dispatch: {} 
-  repository_dispatch: {}  # срабатывает, когда HA шлёт событие
+  repository_dispatch: 
+    types: [update-battery] # срабатывает, когда HA шлёт событие
 
 jobs:
   update:
