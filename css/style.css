@@ -30,17 +30,23 @@ body {
     max-width: 600px;
     width: 100%;
     padding: 40px;
-    animation: fadeIn 1s ease;
-    /* ДОБАВЛЕННЫЕ СТИЛИ ДЛЯ ЦЕНТРИРОВАНИЯ: */
+    
+    /* ИЗМЕНЕНИЕ: Изначально opacity: 0 */
+    opacity: 0; 
+    
+    /* ДОБАВЛЕННЫЕ СТИЛИ ДЛЯ ЦЕНТРИРОВАНИЯ (правильные): */
     position: absolute; 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); 
+
+    /* ПЕРЕМЕЩЕНИЕ АНИМАЦИИ: Теперь анимация управляет только opacity */
+    animation: fadeIn 1s ease forwards; /* Добавлено 'forwards' */
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .logo {
