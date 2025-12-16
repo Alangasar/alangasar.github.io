@@ -1,7 +1,6 @@
 name: Update battery.json
 
 on:
-  workflow_dispatch: {} 
   repository_dispatch: 
     types: [update-battery] # срабатывает, когда HA шлёт событие
 
@@ -23,7 +22,7 @@ jobs:
 
       - name: Write battery.json
         run: |
-          echo "${{ github.event.client_payload.content }}" > battery.json
+          echo '${{ toJson(github.event.client_payload.content) }}' > battery.json
 
 
       - name: Commit and force push
