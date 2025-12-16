@@ -21,7 +21,8 @@ jobs:
 
       - name: Write battery.json
         run: |
-          echo "${{ github.event.client_payload.content }}" > battery.json
+          echo '${{ github.event.client_payload.content }}' > battery.json
+
 
       - name: Commit and force push
         run: |
