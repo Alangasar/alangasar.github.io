@@ -138,8 +138,8 @@ footer {
     top: 20px;       /* Отступ сверху */
     right: 20px;     /* Отступ справа */
     font-size: 0.8em;
-    padding: 2px 3px;
-    border-radius: 1px;
+    padding: 5px 10px;
+    border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.1); /* Легкий фон */
     color: #fff; /* Или цвет текста, который вы используете */
     z-index: 1000; /* Убедитесь, что элемент находится поверх всего */
