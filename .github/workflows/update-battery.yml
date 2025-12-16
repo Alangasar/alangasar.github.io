@@ -1,0 +1,32 @@
+name: Update battery.json
+
+on:
+  repository_dispatch: {}  # срабатывает, когда HA шлёт событие
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # чтобы использовать токен
+          fetch-depth: 0
+
+      - name: Setup Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Write battery.json
+        run: |
+          echo "${{ github.event.client_payload.content }}" > battery.json
+
+      - name: Commit and force push
+        run: |
+          git add battery.json
+          git commit -m "Update battery" || echo "No changes"
+          git push --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
