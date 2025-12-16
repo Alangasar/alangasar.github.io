@@ -18,9 +18,9 @@ body {
     background-color: var(--bg);
     color: var(--text);
     min-height: 100vh;
-    display: flex;
+    /*display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;*/
     padding: 20px;
     text-align: center;
     line-height: 1.6;
@@ -31,6 +31,11 @@ body {
     width: 100%;
     padding: 40px;
     animation: fadeIn 1s ease;
+    /* ДОБАВЛЕННЫЕ СТИЛИ ДЛЯ ЦЕНТРИРОВАНИЯ: */
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes fadeIn {
