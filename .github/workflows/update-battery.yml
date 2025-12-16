@@ -24,10 +24,23 @@ jobs:
         run: |
           echo '${{ toJson(github.event.client_payload.content) }}' > battery.json
 
-
       - name: Commit and force push
         run: |
           git add battery.json
-          git commit -m "Update battery" || echo "No changes"
+          
+          # Проверяем, существует ли коммит 'Update battery'. Если да, перезаписываем.
+          if git log --oneline -1 | grep "Update battery"; then
+            git commit --amend --no-edit || echo "No changes"
+          else
+            git commit -m "Update battery"
+          fi
+          
+          # Принудительно отправляем измененную историю
           git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Alangasar/alangasar.github.io.git main
+          
+      #- name: Commit and force push
+      #  run: |
+      #    git add battery.json
+      #    git commit -m "Update battery" || echo "No changes"
+      #    git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Alangasar/alangasar.github.io.git main
 
