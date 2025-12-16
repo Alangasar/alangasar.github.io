@@ -27,6 +27,5 @@ jobs:
         run: |
           git add battery.json
           git commit -m "Update battery" || echo "No changes"
-          git push --force
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Alangasar/alangasar.github.io.git main
+
