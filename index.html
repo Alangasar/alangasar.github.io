@@ -69,7 +69,9 @@
     }
 
     // Загрузка данных из battery.json
-    fetch('battery.json')
+    fetch('battery.json?nocache=' + new Date().getTime(), {
+        cache: 'no-store' // Явное указание браузеру не хранить результат в кэше
+    })
         .then(response => {
             if (!response.ok) {
                 document.getElementById('battery-status').style.display = 'none';
