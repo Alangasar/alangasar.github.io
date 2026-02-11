@@ -133,49 +133,63 @@ footer {
     color: var(--text-secondary);
 }
 
-#battery-status {
-    position: fixed; /* Фиксирует элемент относительно окна просмотра */
-    top: 20px;       /* Отступ сверху */
-    right: 20px;     /* Отступ справа */
-    font-size: 0.7em;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.1); /* Легкий фон */
-    color: #fff; /* Или цвет текста, который вы используете */
-    z-index: 1000; /* Убедитесь, что элемент находится поверх всего */
-    display: flex;
-    align-items: center;
-}
 
 #battery-status {
-    position: relative;
+    position: fixed;          /* фиксированное положение */
+    top: 20px;                /* отступ сверху */
+    left: 20px;               /* отступ слева */
     display: inline-flex;
     align-items: center;
     gap: 6px;
+
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    padding: 8px 12px;
+    border-radius: 30px;
+
+    color: #fff;
+    font-size: 14px;
     cursor: pointer;
+
+    z-index: 2000;
 }
+
 
 .tooltip {
     position: absolute;
-    bottom: -70px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 45px;                 /* теперь вниз */
+    left: 0;
+    transform: translateY(10px);
+
     background: #1e1e1e;
     color: #fff;
-    padding: 10px 14px;
-    border-radius: 10px;
-    font-size: 13px;
-    width: 220px;
-    text-align: center;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    width: 260px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    z-index: 1000;
+    visibility: hidden;
+    transition: all 0.25s ease;
 }
 
 .tooltip.visible {
     opacity: 1;
-    pointer-events: auto;
+    visibility: visible;
+    transform: translateY(0);
 }
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 20px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #1e1e1e transparent;
+}
+
 
