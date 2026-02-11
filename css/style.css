@@ -196,6 +196,7 @@ footer {
     visibility: hidden;
     transition: all 0.25s ease;
     word-wrap: break-word;
+    width: max-content;
 }
 
 .tooltip.visible {
