@@ -49,13 +49,17 @@
     </footer>
 </div>
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const statusElement = document.getElementById('battery-status');
+    const tooltip = document.getElementById('battery-tooltip');
+    const batteryIcon = document.querySelector('#battery-status i');
+    const batteryLevelSpan = document.getElementById('battery-level');
+
     function updateBatteryDisplay(level) {
-        const batteryIcon = document.querySelector('#battery-status i');
-        const batteryLevelSpan = document.getElementById('battery-level');
-        
+
         batteryLevelSpan.textContent = `${level}%`;
 
-        // Обновление значка Font Awesome в зависимости от уровня
         if (level > 75) {
             batteryIcon.className = 'fas fa-battery-full';
         } else if (level > 50) {
@@ -70,44 +74,77 @@
         }
     }
 
-    // Загрузка данных из battery.json
+    // === ТУЛТИП ===
+
+    function showTooltip() {
+        tooltip.classList.add('visible');
+    }
+
+    function hideTooltip() {
+        tooltip.classList.remove('visible');
+    }
+
+    // ПК (hover)
+    statusElement.addEventListener('mouseenter', showTooltip);
+    statusElement.addEventListener('mouseleave', hideTooltip);
+
+    // Телефон (tap)
+    statusElement.addEventListener('click', function (e) {
+        e.stopPropagation();
+        tooltip.classList.toggle('visible');
+    });
+
+    // Закрытие при клике вне
+    document.addEventListener('click', hideTooltip);
+
+    // === Загрузка JSON ===
+
     fetch('battery.json?nocache=' + new Date().getTime(), {
-        cache: 'no-store' // Явное указание браузеру не хранить результат в кэше
+        cache: 'no-store'
     })
-        .then(response => {
-            if (!response.ok) {
-                document.getElementById('battery-status').style.display = 'none';
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data && typeof data.battery === 'number' && data.updated) {
-                updateBatteryDisplay(data.battery);
-                
-                // --- ДОБАВЛЕНИЕ ТУЛТИПА ---
-                const statusElement = document.getElementById('battery-status');
-                
-                // Форматируем время для удобного отображения в тултипе
-                const updatedTime = new Date(data.updated);
-                const readableTime = updatedTime.toLocaleString('ru-RU', {
-                    year: 'numeric',
-                    month: 'numeric',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
+    .then(response => {
+        if (!response.ok) {
+            statusElement.style.display = 'none';
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
 
-                statusElement.title = `Updated: ${readableTime}`;
-                // -------------------------
+        // если вдруг прилетела строка
+        if (typeof data === "string") {
+            data = JSON.parse(data);
+        }
 
-            } else {
-                console.error("Invalid battery data format.");
-            }
-        })
-        .catch(error => {
-            console.error('Could not fetch battery data:', error);
-        });
+        if (data && typeof data.battery === 'number' && data.updated) {
+
+            updateBatteryDisplay(data.battery);
+
+            const updatedTime = new Date(data.updated);
+            const readableTime = updatedTime.toLocaleString('ru-RU', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            tooltip.innerHTML = `
+                <strong>Battery status</strong><br>
+                Уровень заряда моего телефона.<br>
+                Обновляется автоматически из Home Assistant.<br><br>
+                Последнее обновление:<br>
+                ${readableTime}
+            `;
+        }
+
+    })
+    .catch(error => {
+        console.error('Battery fetch error:', error);
+    });
+
+});
 </script>
+
 </body>
 </html>
