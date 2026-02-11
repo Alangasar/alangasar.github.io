@@ -121,12 +121,13 @@ document.addEventListener("DOMContentLoaded", function () {
             updateBatteryDisplay(data.battery);
 
             const updatedTime = new Date(data.updated);
-            const readableTime = updatedTime.toLocaleString('ru-RU', {
+            const readableTime = updatedTime.toLocaleString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
                 hour: '2-digit',
-                minute: '2-digit'
+                minute: '2-digit',
+                hour12: false
             });
 
             tooltip.innerHTML = `
