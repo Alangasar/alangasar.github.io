@@ -135,17 +135,17 @@ footer {
 
 
 #battery-status {
-    position: fixed;          /* фиксированное положение */
-    top: 20px;                /* отступ сверху */
-    left: 20px;               /* отступ слева */
+    position: fixed;          
+    top: 20px;            
+    right: 20px;          
     display: inline-flex;
     align-items: center;
     gap: 6px;
 
     background: rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(8px);
-    padding: 8px 12px;
-    border-radius: 30px;
+    padding: 5px 10x;
+    border-radius: 5px;
 
     color: #fff;
     font-size: 14px;
