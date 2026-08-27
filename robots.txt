@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alangasar.com/sitemap.xml
+Allow: /llm.txt
