@@ -1,0 +1,19 @@
+# Yura Gushchin (Alangasar)
+
+> Flutter Developer creating cross-platform mobile applications and Home Assistant enthusiast.
+
+## Personal Information
+- **Name:** Yura Gushchin (Юрий Гущин)
+- **Nickname / Handle:** Alangasar
+- **Website:** https://alangasar.com/
+- **Role:** Flutter & Mobile Software Developer
+
+## Primary Expertise & Tech Stack
+- **Mobile Development:** Flutter, Dart, iOS, Android, Clean Architecture, BLoC/Provider
+- **Smart Home & Systems:** Home Assistant, Python, Microcontrollers (ESPHome), MQTT, Docker, Linux
+
+## Social Links & Profiles
+- Telegram: https://t.me/yura_gushchin
+- GitHub: https://github.com/alangasar
+- VK: https://vk.ru/gushchin
+- Instagram: https://www.instagram.com/yura_gushchin/
