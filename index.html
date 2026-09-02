@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- 1. Обязательные базовые теги -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Yura Gushchin (Alangasar) — Flutter Developer</title>
+    <!-- 2. Заголовок страницы и SEO-метатеги -->
+    <title>Yura Gushchin (Alangasar) — Flutter & Drupal Developer</title>
     <meta name="title" content="Yura Gushchin (Alangasar)"/>
-    <meta name="description" content="Yura Gushchin (Alangasar) — Flutter Developer & Home Assistant enthusiast. Passionate about clean architecture and pixel-perfect UIs."/>
+    <meta name="description" content="Yura Gushchin (Alangasar) — Flutter & Drupal Developer, Home Assistant enthusiast. Dedicated to clean architecture and well-crafted software."/>
     <meta name="robots" content="index, follow, max-image-preview:large" />
 
+    <!-- 3. Канонический URL и иконка (Favicon) -->
     <link rel="canonical" href="https://alangasar.com/" />
     <link rel="icon" href="https://avatars.githubusercontent.com/u/1198853" type="image/png">
     <link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/1198853">
 
+    <!-- 4. Стили (CSS и иконки) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Open Graph / Facebook / Telegram -->
+    <!-- 5. Open Graph (для Telegram, VK, WhatsApp) -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://alangasar.com/">
     <meta property="og:site_name" content="Alangasar"/>
     <meta property="og:title" content="Yura Gushchin (Alangasar)"/>
-    <meta property="og:description" content="Yura Gushchin (Alangasar) — Flutter Developer & Home Assistant enthusiast. Passionate about clean architecture and pixel-perfect UIs.">
+    <meta property="og:description" content="Yura Gushchin (Alangasar) — Flutter & Drupal Developer, Home Assistant enthusiast. Dedicated to clean architecture and well-crafted software.">
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/1198853">
 
-    <!-- Twitter -->
+    <!-- 6. Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://alangasar.com/" />
     <meta property="twitter:title" content="Yura Gushchin (Alangasar)"/>
-    <meta property="twitter:description" content="Yura Gushchin (Alangasar) — Flutter Developer & Home Assistant enthusiast. Passionate about clean architecture and pixel-perfect UIs."/>
+    <meta property="twitter:description" content="Yura Gushchin (Alangasar) — Flutter & Drupal Developer, Home Assistant enthusiast. Dedicated to clean architecture and well-crafted software."/>
     <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/1198853"/>
 
-    <meta name="google-site-verification" content="BSki8pdXeIHPNwIJ91uCWyzzAlrKbCXyJCy9zaQOlNg" />
-    <meta name="yandex-verification" content="4906a72fd4569cfa" />
-    
-    <!-- Schema.org JSON-LD -->
+    <!-- 7. Микроразметка Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -44,10 +45,11 @@
       "alternateName": ["Юрий Гущин", "Yuri Gushchin", "Alangasar"],
       "url": "https://alangasar.com/",
       "image": "https://avatars.githubusercontent.com/u/1198853",
-      "jobTitle": "Flutter & Mobile Developer",
+      "jobTitle": "Flutter & Drupal Developer",
       "knowsAbout": [
         "Flutter",
         "Dart",
+        "Drupal",
         "Home Assistant",
         "Cross-platform Development",
         "Clean Architecture"
@@ -74,7 +76,7 @@
 
         <h1 class="name">Yura Gushchin</h1>
         <span class="username">@Alangasar</span>
-        <p class="bio">Flutter Developer creating beautiful cross-platform apps. <span class="ha-text">Home Assistant</span> enthusiast. Passionate about clean architecture and pixel-perfect UIs.</p>
+        <p class="bio">Flutter & Drupal Developer creating beautiful cross-platform apps and web solutions. <span class="ha-text">Home Assistant</span> enthusiast. Dedicated to clean architecture and well-crafted software.</p>
 
         <div class="social-links">
             <a href="https://t.me/yura_gushchin" class="social-link" aria-label="Telegram" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
@@ -97,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const batteryLevelSpan = document.getElementById('battery-level');
 
     function updateBatteryDisplay(level) {
+
         batteryLevelSpan.textContent = `${level}%`;
 
         if (level > 75) {
