@@ -1,6 +1,6 @@
 # Yura Gushchin (Alangasar)
 
-> Flutter & Drupal Developer creating cross-platform applications and web solutions. Home Assistant enthusiast.
+> Flutter & Drupal developer building cross-platform apps and web solutions. Also builds open-source Home Assistant integrations.
 
 ## Personal Information
 - **Name:** Yura Gushchin (Юрий Гущин)
@@ -12,6 +12,11 @@
 - **Mobile Development:** Flutter, Dart, iOS, Android, Clean Architecture, BLoC/Provider
 - **Web Development:** Drupal, PHP, Web APIs
 - **Smart Home & Systems:** Home Assistant, Python, Microcontrollers (ESPHome), MQTT, Docker, Linux
+
+## Open Source Projects
+- [xras_magnetic_storm](https://github.com/Alangasar/xras_magnetic_storm) — Home Assistant integration providing current and forecast geomagnetic activity (Kp-index) data from xras.ru. Covers 146 cities across Russia and Europe.
+- [myschoolcard](https://github.com/Alangasar/myschoolcard) — Home Assistant integration for the myschoolcard.ru school card service.
+- [dm](https://github.com/alangasar/dm) — Symfony var-dumper wrapper for Drupal 8.
 
 ## Social Links & Profiles
 - Telegram: https://t.me/yura_gushchin
